@@ -1,4 +1,14 @@
 /**
+ * Type of HTML element to create for a text entity.
+ */
+ export enum TextType {
+    HEADER_1 = "h1",
+    HEADER_2 = "h2",
+    HEADER_3 = "h3",
+    PARAGRAPH = "p",
+}
+
+/**
  * A text entity used for displaying text through the text component.
  */
 export class TextEntity {
@@ -17,8 +27,8 @@ export class TextEntity {
     constructor(textType: TextType, content: string, classNames?: Array<string>, id?: string) {
         this.textType = textType
         this.content = content
-        this.classNames = classNames !== undefined ? classNames : new Array<string>()
-        this.id = id !== undefined ? id : ''
+        this.classNames = classNames ? classNames : new Array<string>()
+        this.id = id ? id : ''
     }
 
     /**
@@ -32,18 +42,8 @@ export class TextEntity {
     public generateClassString(): string {
         let classString: string = ""
 
-        this.classNames.forEach(className => classString += (" " + className))
+        this.classNames.forEach((className) => classString += (" " + className))
 
         return classString;
     }
-}
-
-/**
- * Type of HTML element to create for a text entity.
- */
-export enum TextType {
-    HEADER_1 = "h1",
-    HEADER_2 = "h2",
-    HEADER_3 = "h3",
-    PARAGRAPH = "p",
 }

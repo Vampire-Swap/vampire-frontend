@@ -25,7 +25,7 @@ describe("TextComponentComponent", () => {
   });
 
   it("should create an h1", () => {
-    const textEntity: TextEntity = new TextEntity(TextType.HEADER_1, "content", undefined, "text-entity-test")
+    const textEntity: TextEntity = new TextEntity(TextType.HEADER_1, "content", [], "text-entity-test")
     const compiled = fixture.nativeElement as HTMLElement;
 
     component.textEntity = textEntity
@@ -39,7 +39,7 @@ describe("TextComponentComponent", () => {
   });
 
   it("should create an h2", () => {
-    const textEntity: TextEntity = new TextEntity(TextType.HEADER_2, "content", undefined, "text-entity-test")
+    const textEntity: TextEntity = new TextEntity(TextType.HEADER_2, "content", [], "text-entity-test")
     const compiled = fixture.nativeElement as HTMLElement;
 
     component.textEntity = textEntity
@@ -53,7 +53,7 @@ describe("TextComponentComponent", () => {
   });
 
   it("should create an h3", () => {
-    const textEntity: TextEntity = new TextEntity(TextType.HEADER_3, "content", undefined, "text-entity-test")
+    const textEntity: TextEntity = new TextEntity(TextType.HEADER_3, "content", [], "text-entity-test")
     const compiled = fixture.nativeElement as HTMLElement;
 
     component.textEntity = textEntity
