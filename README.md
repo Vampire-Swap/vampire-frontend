@@ -1,3 +1,4 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/f2be61fd049d44e8be5ea7c152bda62f)](https://app.codacy.com/gh/Vampire-Swap/vampire-frontend?utm_source=github.com&utm_medium=referral&utm_content=Vampire-Swap/vampire-frontend&utm_campaign=Badge_Grade_Settings)
 [![CodeFactor](https://www.codefactor.io/repository/github/vampire-swap/vampire-frontend/badge)](https://www.codefactor.io/repository/github/vampire-swap/vampire-frontend)
 
 # VampireSwap
