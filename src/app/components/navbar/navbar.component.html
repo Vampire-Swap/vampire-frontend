@@ -1,0 +1,12 @@
+<div class="sticky top-0">
+    <nav class="flex space-x-20 justify-center items-center h-16 bg-gray-50 dark:bg-dark-background bg-opacity-90 backdrop-filter backdrop-blur-sm">
+        <div class="flex flex-1 space-x-10 justify-end">
+            <internal-link *ngFor="let link of leftSideLinks" [link]="link" class="text-gray-900 dark:text-gray-50 hover:text-red-700 dark:hover:text-red-400 underline-effect font-bold text-lg"></internal-link>
+        </div>
+        <a routerLink="/" class="justify-self-center"><img width="48" height="48" alt="VampireSwap logo" src="../../../favicon.svg"></a>
+        <div class="flex flex-1 space-x-10 justify-start">
+            <internal-link *ngFor="let link of rightSideLinks" [link]="link" class="text-gray-900 dark:text-gray-50 hover:text-red-700 dark:hover:text-red-400 underline-effect font-bold text-lg"></internal-link>
+            <button (click)="changeTheme()" class="text-lg text-gray-900 dark:text-gray-50 hover:text-blue-800 dark:hover:text-yellow-300"><fa-icon [icon]="currentThemeIcon" size="lg"></fa-icon></button>
+        </div>
+    </nav>
+</div>
