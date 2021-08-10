@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { TextEntity, TextType } from "src/app/components/core/text-component/text-entity";
+import { ThemeChangerService } from "src/app/services/theme-changer.service";
 
 @Component({
   selector: "app-home",
@@ -8,13 +8,17 @@ import { TextEntity, TextType } from "src/app/components/core/text-component/tex
 })
 export class HomeComponent implements OnInit {
 
-  public textEntity: TextEntity;
+  private currentTheme: string = "light";
 
-  constructor() { 
-    this.textEntity = new TextEntity(TextType.PARAGRAPH, "Hello vampire swap", Array.of("class1", "class2", "class3"), "test-entity")
+  constructor(private themeChangerService: ThemeChangerService) { 
+    themeChangerService.currentTheme.subscribe(theme => this.currentTheme = theme)
   }
 
   ngOnInit(): void {
+  }
+
+  ngOnDestroy(): void {
+    this.themeChangerService.currentTheme.unsubscribe();
   }
 
 }

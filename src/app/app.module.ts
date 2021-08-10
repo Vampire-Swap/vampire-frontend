@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
+import { NgApexchartsModule } from "ng-apexcharts";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -13,6 +14,7 @@ import { ApolloClientOptions, InMemoryCache } from "@apollo/client/core";
 import { HttpLink } from "apollo-angular/http";
 import { APOLLO_OPTIONS } from "apollo-angular";
 import { PriceChartComponent } from './components/price-chart/price-chart.component';
+import { BannerSectionComponent } from './components/banner-section/banner-section.component';
 
 const uri = 'https://api.thegraph.com/subgraphs/name/sameepsi/quickswap06'; // <-- add the URL of the GraphQL server here
 export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
@@ -29,13 +31,15 @@ export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
     TextComponent,
     NavbarComponent,
     InternalLinkComponent,
-    PriceChartComponent
+    PriceChartComponent,
+    BannerSectionComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
     HttpClientModule,
+    NgApexchartsModule,
   ],
   providers: [
     {

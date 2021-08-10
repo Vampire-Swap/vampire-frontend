@@ -1,11 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core'
 import {
+  faBurn,
   faCloudMoon,
   faMapMarkedAlt,
   faSun,
   faTint,
   IconDefinition,
 } from '@fortawesome/free-solid-svg-icons'
+import { ThemeChangerService } from 'src/app/services/theme-changer.service'
 import { Link } from 'src/app/utils/models/Link'
 
 @Component({
@@ -17,7 +19,7 @@ export class NavbarComponent implements OnInit {
   public title: string = 'VampireSwap'
   @Input() public leftSideLinks: Array<Link> = new Array<Link>(
     new Link('Blood Pools', '/', faTint),
-    new Link('Blood Farms', '/', faTint),
+    new Link('Plasma Farms', '/', faBurn),
   )
   @Input() public rightSideLinks: Array<Link> = new Array<Link>(
     new Link('Roadmap', '/', faMapMarkedAlt),
@@ -27,7 +29,7 @@ export class NavbarComponent implements OnInit {
   public faSun: IconDefinition = faSun;
   public currentThemeIcon: IconDefinition = this.faCloudMoon;
 
-  constructor() {}
+  constructor(private themeChangerService: ThemeChangerService) {}
 
   ngOnInit(): void {
     if (
@@ -49,10 +51,12 @@ export class NavbarComponent implements OnInit {
       document.documentElement.classList.remove('dark')
       localStorage.theme = 'light'
       this.currentThemeIcon = this.faCloudMoon
+      this.themeChangerService.updateTheme("light")
     } else {
       document.documentElement.classList.add('dark')
       localStorage.theme = 'dark'
       this.currentThemeIcon = this.faSun
+      this.themeChangerService.updateTheme("dark")
     }
   }
 }

@@ -5,6 +5,9 @@ module.exports = {
     extend: {
       colors: {
         'dark-background': '#121212'
+      },
+      zIndex: {
+        '-100': '-100'
       }
     },
   },

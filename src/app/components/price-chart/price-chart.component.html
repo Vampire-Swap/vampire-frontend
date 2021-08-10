@@ -1,1 +1,18 @@
-<p>price-chart works!</p>
+<div class="w-1/2 rounded-md" id="chart-container">
+    <apx-chart 
+        *ngIf="chartOptions !== null" 
+        [chart]="chartOptions.chart" 
+        [series]="chartOptions.series"
+        [dataLabels]="chartOptions.dataLabels"
+        [grid]="chartOptions.grid"
+        [stroke]="chartOptions.stroke"
+        [fill]="chartOptions.fill"
+        [theme]="chartOptions.theme"
+        [xaxis]="chartOptions.xaxis"
+        [yaxis]="chartOptions.yaxis"
+        [tooltip]="chartOptions.tooltip"
+        [title]="chartOptions.title"
+        [markers]="chartOptions.markers"
+        [colors]="chartOptions.colors">
+    </apx-chart>
+</div>
