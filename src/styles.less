@@ -3,8 +3,20 @@
 @tailwind components;
 @tailwind utilities;
 
-*:not(#chart-container *) {
+// *:not(#chart-container *) {
+//     z-index: 20;
+// }
+
+* {
     z-index: 20;
+}
+
+#chart-container {
+    z-index: 0;
+}
+
+#elevated *, #elevated {
+    z-index: 50;
 }
 
 #chart-container svg {

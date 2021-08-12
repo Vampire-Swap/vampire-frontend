@@ -1,12 +1,29 @@
-<div class="sticky top-0">
-    <nav class="flex space-x-20 justify-center items-center h-16 bg-gray-50 dark:bg-dark-background bg-opacity-90 backdrop-filter backdrop-blur-sm">
-        <div class="flex flex-1 space-x-10 justify-end">
-            <internal-link *ngFor="let link of leftSideLinks" [link]="link" class="text-gray-900 dark:text-gray-50 hover:text-red-700 dark:hover:text-red-400 underline-effect font-bold text-lg"></internal-link>
+<div class="sticky top-0 hidden lg:block" id="navbar">
+    <nav class="flex xl:space-x-16 space-x-10 justify-center items-center h-16 bg-gray-50 dark:bg-gray-900 bg-opacity-90 backdrop-filter backdrop-blur-sm">
+        <div class="flex flex-1 xl:space-x-10 space-x-5 justify-end">
+            <internal-link *ngFor="let link of leftSideLinks" [link]="link" class="text-gray-900 dark:text-gray-50 hover:text-red-700 dark:hover:text-red-400 underline-effect font-bold xl:text-lg"></internal-link>
         </div>
         <a routerLink="/" class="justify-self-center"><img width="48" height="48" alt="VampireSwap logo" src="../../../favicon.svg"></a>
-        <div class="flex flex-1 space-x-10 justify-start">
-            <internal-link *ngFor="let link of rightSideLinks" [link]="link" class="text-gray-900 dark:text-gray-50 hover:text-red-700 dark:hover:text-red-400 underline-effect font-bold text-lg"></internal-link>
-            <button (click)="changeTheme()" class="text-lg text-gray-900 dark:text-gray-50 hover:text-blue-800 dark:hover:text-yellow-300"><fa-icon [icon]="currentThemeIcon" size="lg"></fa-icon></button>
+        <div class="flex flex-1 justify-between items-center">
+            <div class="flex xl:space-x-10 space-x-5">
+                <internal-link *ngFor="let link of rightSideLinks" [link]="link" class="text-gray-900 dark:text-gray-50 hover:text-red-700 dark:hover:text-red-400 underline-effect font-bold xl:text-lg"></internal-link>
+                <button (click)="changeTheme()" class="text-lg text-gray-900 dark:text-gray-50 hover:text-blue-800 dark:hover:text-yellow-300"><fa-icon [icon]="currentThemeIcon" size="lg"></fa-icon></button>
+            </div>
+            <div class="xl:mr-10 mr-2">
+                <button class="dark:hover:bg-pink-700 hover:bg-pink-500 hover:text-gray-50 transition duration-500 rounded-md p-2 xl:text-lg text-gray-900 dark:text-gray-50 font-bold"><fa-icon [icon]="faWallet" class="mr-3"></fa-icon>Connect <span class="hidden lg:inline-block">Wallet</span></button>
+            </div>
         </div>
+    </nav>
+</div>
+
+<div class="fixed bottom-0 w-full lg:hidden" id="navbar">
+    <nav class="flex justify-around items-center h-16 bg-gray-50 dark:bg-gray-900 bg-opacity-90 backdrop-filter backdrop-blur-sm">
+        <internal-link *ngFor="let link of leftSideLinks" [link]="link" class="text-gray-900 dark:text-gray-50 hover:text-red-700 dark:hover:text-red-400 underline-effect font-bold xl:text-lg sm:text-base text-xs text-center"></internal-link>
+        <internal-link *ngFor="let link of rightSideLinksMobile" [link]="link" class="text-gray-900 dark:text-gray-50 hover:text-red-700 dark:hover:text-red-400 underline-effect font-bold xl:text-lg sm:text-base text-xs text-center"></internal-link>
+        <div class="flex flex-col justify-center items-center">
+            <fa-icon [icon]="faWallet" class="xl:text-lg sm:text-base text-xs text-center text-gray-900 dark:text-gray-50 font-bold"></fa-icon>
+            <a class="transition duration-500 rounded-md xl:text-lg sm:text-base text-xs text-center text-gray-900 dark:text-gray-50 font-bold">Connect <span class="hidden lg:inline-block">Wallet</span></a>
+        </div>
+        <button (click)="changeTheme()" class="xl:text-lg  p-4 text-gray-900 dark:text-gray-50 hover:text-blue-800 dark:hover:text-yellow-300"><fa-icon [icon]="currentThemeIcon" size="lg"></fa-icon></button>
     </nav>
 </div>

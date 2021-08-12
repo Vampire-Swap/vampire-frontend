@@ -1,10 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core'
+import { faNewspaper } from '@fortawesome/free-regular-svg-icons'
 import {
   faBurn,
   faCloudMoon,
   faMapMarkedAlt,
   faSun,
   faTint,
+  faWallet,
   IconDefinition,
 } from '@fortawesome/free-solid-svg-icons'
 import { ThemeChangerService } from 'src/app/services/theme-changer.service'
@@ -23,11 +25,16 @@ export class NavbarComponent implements OnInit {
   )
   @Input() public rightSideLinks: Array<Link> = new Array<Link>(
     new Link('Roadmap', '/', faMapMarkedAlt),
-    new Link('More Info', '/'),
+    new Link('More Info', '/', faNewspaper),
+  )
+  public rightSideLinksMobile: Array<Link> = new Array<Link>(
+    new Link('More Info', '/', faNewspaper),
   )
   public faCloudMoon: IconDefinition = faCloudMoon;
   public faSun: IconDefinition = faSun;
   public currentThemeIcon: IconDefinition = this.faCloudMoon;
+  public faWallet: IconDefinition = faWallet;
+  public faNewspaper: IconDefinition = faNewspaper;
 
   constructor(private themeChangerService: ThemeChangerService) {}
 

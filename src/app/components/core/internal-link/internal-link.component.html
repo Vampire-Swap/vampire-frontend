@@ -1,1 +1,4 @@
-<a [routerLink]="link.href"><fa-icon *ngIf="link.icon" [icon]="link.icon" class="mr-2"></fa-icon>{{ link.name }}</a>
+<div class="flex flex-col lg:flex-row justify-center items-center">
+    <fa-icon *ngIf="link.icon" [icon]="link.icon" class="lg:mr-2"></fa-icon>
+    <a [routerLink]="link.href">{{ link.name }}</a>
+</div>

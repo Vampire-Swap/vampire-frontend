@@ -15,6 +15,11 @@ import { HttpLink } from "apollo-angular/http";
 import { APOLLO_OPTIONS } from "apollo-angular";
 import { PriceChartComponent } from './components/price-chart/price-chart.component';
 import { BannerSectionComponent } from './components/banner-section/banner-section.component';
+import { PresentationSectionComponent } from './components/presentation-section/presentation-section.component';
+import { FloatingImageComponent } from "./components/core/floating-image/floating-image.component";
+import { BannerCardsSectionComponent } from "./components/banner-cards-section/banner-cards-section.component";
+import { BannerCardComponent } from "./components/core/banner-card/banner-card.component";
+import { HeaderSectionComponent } from './components/header-section/header-section.component';
 
 const uri = 'https://api.thegraph.com/subgraphs/name/sameepsi/quickswap06'; // <-- add the URL of the GraphQL server here
 export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
@@ -33,6 +38,11 @@ export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
     InternalLinkComponent,
     PriceChartComponent,
     BannerSectionComponent,
+    BannerCardsSectionComponent,
+    BannerCardComponent,
+    FloatingImageComponent,
+    PresentationSectionComponent,
+    HeaderSectionComponent,
   ],
   imports: [
     BrowserModule,

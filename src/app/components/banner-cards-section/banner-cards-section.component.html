@@ -1,0 +1,21 @@
+<div class="flex flex-col justify-around w-full h-full space-y-3 md:space-y-0 -mt-3 md:-mt-0">
+    <div class="flex w-full justify-center">
+        <banner-card class="bg-yellow-200 dark:bg-yellow-600 text-center dark:text-gray-50 rounded-md sm:p-5 p-3 sm:w-2/3 hover:ring-4 hover:ring-yellow-500" [bannerCard]="bannerCard">
+            <div class="flex justify-center space-x-10 text-2xl">
+                <a href="https://twitter.com/"><fa-icon [icon]="faTwitter" class="cursor-pointer"></fa-icon></a>
+                <a href="https://facebook.com"><fa-icon [icon]="faFacebook" class="cursor-pointer"></fa-icon></a>
+                <a href="https://medium.com"><fa-icon [icon]="faMedium" class="cursor-pointer"></fa-icon></a>
+                <a href="https://telegram.org"><fa-icon [icon]="faTelegramPlane" class="cursor-pointer"></fa-icon></a>
+            </div>
+        </banner-card>
+    </div>
+    <div class="flex flex-col md:flex-row flex-wrap w-full md:space-x-5 space-y-3 md:justify-around justify-center items-center">
+        <banner-card class="bg-pink-300 dark:bg-pink-700 text-center dark:text-gray-50 rounded-md sm:p-8 p-4 md:w-1/3 w-1/2 cursor-pointer hover:shadow-2xl hover:ring-4 hover:ring-pink-500">
+            <p class="font-bold md:text-xl">Earn up to <span class="md:text-2xl text-xl text-white">{{ maxAprFarms }}%</span> in our Plasma Farms</p>
+        </banner-card>
+        <banner-card class="bg-purple-300 dark:bg-purple-700 text-center dark:text-gray-50 rounded-md sm:p-8 p-4 md:w-1/3 w-1/2 cursor-pointer hover:shadow-2xl hover:ring-4 hover:ring-purple-500">
+            <p class="font-bold md:text-xl">Earn up to <span class="md:text-2xl text-xl text-white">{{ maxAprPools }}%</span> in our Blood Pools</p>
+        </banner-card>
+        
+    </div>
+</div>

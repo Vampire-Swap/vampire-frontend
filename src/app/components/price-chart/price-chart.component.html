@@ -1,4 +1,4 @@
-<div class="w-1/2 rounded-md" id="chart-container">
+<div class="rounded-md">
     <apx-chart 
         *ngIf="chartOptions !== null" 
         [chart]="chartOptions.chart" 
@@ -13,6 +13,8 @@
         [tooltip]="chartOptions.tooltip"
         [title]="chartOptions.title"
         [markers]="chartOptions.markers"
-        [colors]="chartOptions.colors">
+        [colors]="chartOptions.colors"
+        [noData]="chartOptions.noData"
+        [responsive]="chartOptions.responsive">
     </apx-chart>
 </div>

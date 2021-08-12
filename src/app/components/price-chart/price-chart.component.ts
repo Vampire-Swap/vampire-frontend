@@ -2,7 +2,7 @@ import { ChangeDetectorRef, Component, Input, OnInit, ViewChild } from '@angular
 import { Observable } from 'rxjs';
 import { Token, TokenPriceDataFeed, TRACKED_TOKEN } from './tokenData';
 import { map } from 'rxjs/operators';
-import { ApexAxisChartSeries, ApexChart, ApexDataLabels, ApexFill, ApexGrid, ApexMarkers, ApexStroke, ApexTheme, ApexTitleSubtitle, ApexTooltip, ApexXAxis, ApexYAxis, ChartComponent } from 'ng-apexcharts';
+import { ApexAxisChartSeries, ApexChart, ApexDataLabels, ApexFill, ApexGrid, ApexMarkers, ApexNoData, ApexResponsive, ApexStroke, ApexTheme, ApexTitleSubtitle, ApexTooltip, ApexXAxis, ApexYAxis, ChartComponent } from 'ng-apexcharts';
 import { ThemeChangerService } from 'src/app/services/theme-changer.service';
 
 export type ChartOptions = {
@@ -18,7 +18,9 @@ export type ChartOptions = {
   tooltip: ApexTooltip,
   title: ApexTitleSubtitle,
   markers: ApexMarkers,
-  colors: Array<string>
+  colors: Array<string>,
+  noData: ApexNoData,
+  responsive: [ApexResponsive]
 }
 
 @Component({
@@ -189,8 +191,132 @@ export class PriceChartComponent implements OnInit {
           hover: {
           }
         },
-        colors: ["#ff79c6"]
+        colors: ["#ff79c6"],
+        noData: {
+          text: "Data not available for the moment",
+        },
+        responsive: [
+          {
+            breakpoint: 768,
+            options: {
+              chart: {
+                height: 300
+              }
+            }
+          }
+        ]
       }
+    },
+    (error) => this.chartOptions = {
+      series: [
+        {
+          name: "VMP Price",
+          data: []
+        }
+      ],
+      chart: {
+        height: 500,
+        type: "area",
+        toolbar: {
+          autoSelected: "pan",
+          show: false
+        },
+        background: this.currentTheme === 'dark' ? "#1d1d1d" : "#FEE8E3",
+        animations: {
+          speed: 500,
+
+        }
+      },
+      dataLabels: {
+        enabled: false
+      },
+      grid: {
+        yaxis: {
+          lines: {
+            show: false
+          }
+        },
+        padding: {
+          left: 0,
+          right: 0,
+          bottom: 0
+        }
+      },
+      fill: {
+        colors: [
+          "#ff79c6"
+        ],
+        gradient: {
+          opacityFrom: 0.8,
+          opacityTo: 0.2,
+          type: "vertical"
+        }
+      },
+      theme: {
+        mode: this.currentTheme
+      },
+      stroke: {
+        curve: "smooth",
+        width: 3,
+        colors: ["#ff79c6"]
+      },
+      xaxis: {
+        type: "datetime",
+        labels: {
+          show: false,
+        },
+        axisTicks: {
+          show: false,
+        },
+        axisBorder: {
+          show: false,
+        }
+      },
+      yaxis: {
+        decimalsInFloat: 2,
+        tickAmount: 4,
+        show: false
+      },
+      tooltip: {
+        x: {
+          format: "dd/MM/yy"
+        },
+        y: {
+          formatter: function(val): string {
+            return "$" + val.toPrecision(3).toString()
+          }
+        },
+        theme: this.currentTheme === 'dark' ? "#212121" : "#ffffff"
+      },
+      title: {
+        text: "Vampire Token Price",
+        align: "center",
+        style: {
+          fontWeight: "bold",
+          fontSize: "25px",
+          color: this.currentTheme === 'dark' ? "#ffffff" : "#000000"
+        }
+      },
+      markers: {
+        colors: ["#ffb86c"],
+        strokeColors: ["#ffb86c"],
+        hover: {
+        }
+      },
+      colors: ["#ff79c6"],
+      noData: {
+        text: "Data not available for the moment",
+      },
+      responsive: [
+        {
+          breakpoint: 768,
+          options: {
+            chart: {
+              height: 300
+            }
+          }
+        }
+      ]
     });
   }
 
