@@ -10,7 +10,7 @@
                 <button (click)="changeTheme()" class="text-lg text-gray-900 dark:text-gray-50 hover:text-blue-800 dark:hover:text-yellow-300"><fa-icon [icon]="currentThemeIcon" size="lg"></fa-icon></button>
             </div>
             <div class="xl:mr-10 mr-2">
-                <button class="dark:hover:bg-pink-700 hover:bg-pink-500 hover:text-gray-50 transition duration-500 rounded-md p-2 xl:text-lg text-gray-900 dark:text-gray-50 font-bold"><fa-icon [icon]="faWallet" class="mr-3"></fa-icon>Connect <span class="hidden lg:inline-block">Wallet</span></button>
+                <button (click)="connect()" class="dark:hover:bg-pink-700 hover:bg-pink-500 hover:text-gray-50 transition duration-500 rounded-md p-2 xl:text-lg text-gray-900 dark:text-gray-50 font-bold"><fa-icon [icon]="faWallet" class="mr-3"></fa-icon>Connect <span class="hidden lg:inline-block">Wallet</span></button>
             </div>
         </div>
     </nav>
@@ -22,8 +22,8 @@
         <internal-link *ngFor="let link of rightSideLinksMobile" [link]="link" class="text-gray-900 dark:text-gray-50 hover:text-red-700 dark:hover:text-red-400 underline-effect font-bold xl:text-lg sm:text-base text-xs text-center"></internal-link>
         <div class="flex flex-col justify-center items-center">
             <fa-icon [icon]="faWallet" class="xl:text-lg sm:text-base text-xs text-center text-gray-900 dark:text-gray-50 font-bold"></fa-icon>
-            <a class="transition duration-500 rounded-md xl:text-lg sm:text-base text-xs text-center text-gray-900 dark:text-gray-50 font-bold">Connect <span class="hidden lg:inline-block">Wallet</span></a>
+            <a (click)="connect()" class="transition duration-500 rounded-md xl:text-lg sm:text-base text-xs text-center text-gray-900 dark:text-gray-50 font-bold">Connect <span class="hidden lg:inline-block">Wallet</span></a>
         </div>
-        <button (click)="changeTheme()" class="xl:text-lg  p-4 text-gray-900 dark:text-gray-50 hover:text-blue-800 dark:hover:text-yellow-300"><fa-icon [icon]="currentThemeIcon" size="lg"></fa-icon></button>
+        <button (click)="changeTheme()" class="xl:text-lg  p-4 text-gray-900 dark:text-gray-50 hover:text-blue-800 dark:hover:text-yellow-300"><fa-icon [icon]="currentThemeIcon"></fa-icon></button>
     </nav>
 </div>

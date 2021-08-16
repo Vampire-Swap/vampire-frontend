@@ -20,6 +20,11 @@ import { FloatingImageComponent } from "./components/core/floating-image/floatin
 import { BannerCardsSectionComponent } from "./components/banner-cards-section/banner-cards-section.component";
 import { BannerCardComponent } from "./components/core/banner-card/banner-card.component";
 import { HeaderSectionComponent } from './components/header-section/header-section.component';
+import { BloodPoolsComponent } from './views/blood-pools/blood-pools.component';
+import { BannerComponent } from './components/core/banner/banner.component';
+import { PoolComponent } from './components/core/pool/pool.component';
+import { PlasmaFarmsComponent } from './views/plasma-farms/plasma-farms.component';
+import { StakeBannerComponent } from './components/stake-banner/stake-banner.component';
 
 const uri = 'https://api.thegraph.com/subgraphs/name/sameepsi/quickswap06'; // <-- add the URL of the GraphQL server here
 export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
@@ -43,6 +48,11 @@ export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
     FloatingImageComponent,
     PresentationSectionComponent,
     HeaderSectionComponent,
+    BloodPoolsComponent,
+    BannerComponent,
+    PoolComponent,
+    PlasmaFarmsComponent,
+    StakeBannerComponent,
   ],
   imports: [
     BrowserModule,

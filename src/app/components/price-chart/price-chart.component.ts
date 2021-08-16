@@ -319,9 +319,4 @@ export class PriceChartComponent implements OnInit {
       ]
     });
   }
-
-  ngOnDestroy() {
-    this.themeChangerService.currentTheme.unsubscribe()
-  }
-
 }

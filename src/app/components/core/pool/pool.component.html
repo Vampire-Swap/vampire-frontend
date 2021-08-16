@@ -1,0 +1,45 @@
+<div class="flex flex-col justify-center items-center w-full bg-gradient-to-b to-gray-900 from-pink-900  py-3 pb-5 rounded-lg">
+    <div class="flex items-center space-x-4 py-3 w-full">
+        <img class="ring-4 rounded-full p-1 ring-white ml-3" src="../../../../favicon.svg" alt="VMP token logo" width="52" height="52">
+        <div class="flex flex-col">
+            <h4 class="font-bold text-lg dark:text-gray-200">Stake {{ pool.stakedToken }}</h4>
+            <h3 class="font-bold text-2xl dark:text-white">Earn {{ pool.earnedToken }}</h3>
+        </div>
+    </div>
+    <div class="flex justify-start w-full space-x-3 ml-3 dark:text-white font-semibold">
+        <p *ngIf="pool.multiplier > 0" class="py-0.5 px-2 border-2 border-blue-300 rounded-full">{{ pool.multiplier }}x</p>
+        <p *ngIf="pool.fee > 0; else noFee" class="py-0.5 px-2 border-2 border-green-300 rounded-full">{{ pool.fee }}%</p>
+        <ng-template #noFee><p class="py-0.5 px-2 border-2 border-green-300 rounded-full">No Fee</p></ng-template>
+    </div>
+    <div class="w-11/12 mt-3">
+        <div class="grid grid-rows-2 grid-cols-2 gap-y-5 font-bold text-white rounded-md bg-dark-background p-5">
+            <div class="flex flex-col justify-center">
+                <h3 class="text-lg">{{ pool.apr }}%</h3>
+                <h4 class="text-gray-200">APR</h4>
+            </div>
+            <div class="flex flex-col justify-center">
+                <h3 class="text-lg">{{ pool.tvl }}</h3>
+                <h4 class="text-gray-200">TVL</h4>
+            </div>
+            <div class="flex flex-col justify-center">
+                <h3 class="text-lg">{{ pool.deposited }}</h3>
+                <h4 class="text-gray-200">Deposited</h4>
+            </div>
+            <div class="flex flex-col justify-center">
+                <h3 class="text-lg">{{ pool.earned }}</h3>
+                <h4 class="text-gray-200">Earned</h4>
+            </div>
+        </div>
+    </div>
+    <button *ngIf="!pool.approved" class="px-3 py-2 mt-3 rounded-md bg-gradient-to-br from-pink-600 to-pink-800 font-bold text-white">Approve Contract</button>
+    <div *ngIf="pool.approved" class="flex flex-col items-center justify-around w-full">
+        <div class="flex w-full justify-around items-center">
+            <input type="number" [placeholder]="'0.00 ' + pool.stakedToken" class="flex-1 rounded-md bg-dark-background text-white font-bold p-3 mt-3 mx-3 w-1/2">
+            <button (click)="startStakeAction()" class="px-3 py-2 mt-3 mr-3 rounded-md bg-gradient-to-br from-pink-600 to-pink-800 font-bold text-white">Stake</button>
+        </div>
+        <div class="flex w-full justify-around items-center" *ngIf="pool.staked > 0">
+            <input type="number" [placeholder]="'0.00 ' + pool.stakedToken" class="flex-1 rounded-md bg-dark-background text-white font-bold p-3 mt-3 mx-3 w-1/2">
+            <button (click)="startUnstakeAction()" class="px-3 py-2 mt-3 mr-3 rounded-md bg-gradient-to-br from-pink-600 to-pink-800 font-bold text-white">Unstake</button>
+        </div>
+    </div>
+</div>

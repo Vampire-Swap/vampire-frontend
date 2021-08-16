@@ -1,0 +1,5 @@
+<stake-banner [title]="'Welcome to the Blood Pools'" [subtitle]="'Stake VMP earn other tokens'"></stake-banner>
+
+<div class="grid md:grid-cols-2 lg:grid-cols-3 mt-10 mb-20">
+    <pool *ngFor="let pool of pools"class="w-full p-4" [pool]="pool"></pool>
+</div>

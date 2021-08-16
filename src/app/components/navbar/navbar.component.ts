@@ -9,6 +9,7 @@ import {
   faWallet,
   IconDefinition,
 } from '@fortawesome/free-solid-svg-icons'
+import { MetamaskService } from 'src/app/services/metamask.service'
 import { ThemeChangerService } from 'src/app/services/theme-changer.service'
 import { Link } from 'src/app/utils/models/Link'
 
@@ -20,8 +21,8 @@ import { Link } from 'src/app/utils/models/Link'
 export class NavbarComponent implements OnInit {
   public title: string = 'VampireSwap'
   @Input() public leftSideLinks: Array<Link> = new Array<Link>(
-    new Link('Blood Pools', '/', faTint),
-    new Link('Plasma Farms', '/', faBurn),
+    new Link('Blood Pools', '/pools', faTint),
+    new Link('Plasma Farms', '/farms', faBurn),
   )
   @Input() public rightSideLinks: Array<Link> = new Array<Link>(
     new Link('Roadmap', '/', faMapMarkedAlt),
@@ -36,7 +37,7 @@ export class NavbarComponent implements OnInit {
   public faWallet: IconDefinition = faWallet;
   public faNewspaper: IconDefinition = faNewspaper;
 
-  constructor(private themeChangerService: ThemeChangerService) {}
+  constructor(private themeChangerService: ThemeChangerService, private metamaskService: MetamaskService) {}
 
   ngOnInit(): void {
     if (
@@ -65,5 +66,9 @@ export class NavbarComponent implements OnInit {
       this.currentThemeIcon = this.faSun
       this.themeChangerService.updateTheme("dark")
     }
+  }
+
+  public connect() {
+    this.metamaskService.connect()
   }
 }
