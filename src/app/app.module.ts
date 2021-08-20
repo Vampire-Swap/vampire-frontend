@@ -25,6 +25,8 @@ import { BannerComponent } from './components/core/banner/banner.component';
 import { PoolComponent } from './components/core/pool/pool.component';
 import { PlasmaFarmsComponent } from './views/plasma-farms/plasma-farms.component';
 import { StakeBannerComponent } from './components/stake-banner/stake-banner.component';
+import { Web3ModalModule, Web3ModalService } from "@mindsorg/web3modal-angular";
+import { IProviderControllerOptions } from "@mindsorg/web3modal-ts";
 
 const uri = 'https://api.thegraph.com/subgraphs/name/sameepsi/quickswap06'; // <-- add the URL of the GraphQL server here
 export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
@@ -60,6 +62,7 @@ export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
     FontAwesomeModule,
     HttpClientModule,
     NgApexchartsModule,
+    Web3ModalModule
   ],
   providers: [
     {
@@ -67,6 +70,19 @@ export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
       useFactory: createApollo,
       deps: [HttpLink],
     },
+    {
+      provide: Web3ModalService,
+      useFactory: () => {
+        return new Web3ModalService({
+          network: "mumbai",
+          cacheProvider: true,
+          disableInjectedProvider: false,
+          providerOptions: {
+            
+          }
+        })
+      }
+    }
   ],
   bootstrap: [AppComponent]
 })

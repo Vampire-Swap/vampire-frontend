@@ -9,6 +9,7 @@ import {
   faWallet,
   IconDefinition,
 } from '@fortawesome/free-solid-svg-icons'
+import { Web3ModalService } from '@mindsorg/web3modal-angular'
 import { MetamaskService } from 'src/app/services/metamask.service'
 import { ThemeChangerService } from 'src/app/services/theme-changer.service'
 import { Link } from 'src/app/utils/models/Link'
@@ -37,7 +38,7 @@ export class NavbarComponent implements OnInit {
   public faWallet: IconDefinition = faWallet;
   public faNewspaper: IconDefinition = faNewspaper;
 
-  constructor(private themeChangerService: ThemeChangerService, private metamaskService: MetamaskService) {}
+  constructor(private themeChangerService: ThemeChangerService, private metamaskService: MetamaskService, private web3ModalService: Web3ModalService) {}
 
   ngOnInit(): void {
     if (
@@ -68,7 +69,9 @@ export class NavbarComponent implements OnInit {
     }
   }
 
-  public connect() {
-    this.metamaskService.connect()
+  public async connect() {
+    const provider = await this.web3ModalService.open()
+
+    console.log(provider);
   }
 }
